@@ -25,5 +25,10 @@
     "globals": "^15.14.0",
     "standard": "^17.1.2",
     "vite": "^6.1.0"
+  },
+  "eslintConfig": {
+    "rules": {
+      "react/prop-types": "off"
+    }
   }
 }
