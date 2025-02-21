@@ -1,10 +1,9 @@
-# Prueba técnica para Juniors y Trainees de React en Live Coding.
+# 🧩 Tech Tests Repository
 
-APIs:
+Este repositorio contiene una colección de pruebas técnicas organizadas en carpetas individuales. Cada prueba incluye su propia documentación y estructura para facilitar su comprensión y reutilización.
 
-- Facts Random: https://catfact.ninja/fact
-- Imagen random: https://cataas.com/cat/says/hello
+## 🚀 Instalación y Configuración
 
-- Recupera un hecho aleatorio de gatos de la primera API
-- Recuperar la primera palabra del hecho
-- Muestra una imagen de un gato con la primera palabra.
+1. **Clona el repositorio**:
+   git clone https://github.com/tu-usuario/tech-tests-repo.git
+   cd tech-tests-repo
