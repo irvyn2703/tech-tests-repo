@@ -1,7 +1,7 @@
 import useMovies from "../../../hooks/useMovies";
 import SearchBusiness from "../Business/SearchBusiness";
 
-export default function SearchUI() {
+export default function SearchUI({ handleMovies }) {
   const {
     inputRefSearch,
     handleSearch,
@@ -10,7 +10,12 @@ export default function SearchUI() {
     handleChangeSearch,
   } = SearchBusiness();
 
-  const {} = useMovies({ search, changeSearch });
+  useMovies({
+    search,
+    changeSearch,
+    handleChangeSearch,
+    handleMovies,
+  });
 
   return (
     <header className="flex items-center flex-col">
