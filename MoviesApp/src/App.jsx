@@ -1,26 +1,25 @@
 import "./App.css";
+import AppBusiness from "./AppBusiness";
 import CardUI from "./components/Card/UI/CardUI";
 import SearchUI from "./components/Search/UI/SearchUI";
-import { Search } from "./mocks/with-results.json";
 
 function App() {
-  const handleMovies = (movies) => {
-    console.log(movies);
-  };
+  const { movies, handleMovies } = AppBusiness();
 
   return (
     <>
       <SearchUI handleMovies={handleMovies} />
       <main className="flex flex-wrap gap-20 p-4 justify-center">
-        {Search.map((movie) => (
-          <CardUI
-            key={movie.imdbID}
-            poster={movie.Poster}
-            title={movie.Title}
-            year={movie.Year}
-            type={movie.Type}
-          />
-        ))}
+        {movies.response !== "False" &&
+          movies.Search?.map((movie) => (
+            <CardUI
+              key={movie.imdbID}
+              poster={movie.Poster}
+              title={movie.Title}
+              year={movie.Year}
+              type={movie.Type}
+            />
+          ))}
       </main>
     </>
   );
