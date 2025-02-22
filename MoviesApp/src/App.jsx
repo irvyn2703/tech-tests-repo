@@ -10,7 +10,11 @@ function App() {
     <>
       <SearchUI handleMovies={handleMovies} />
       <main className="flex flex-wrap gap-20 p-4 justify-center">
-        {movies.response !== "False" &&
+        {movies.Response === "False" ? (
+          <h1 className="text-2xl text-center font-bold text-blue-50 p-7">
+            Sin resultados
+          </h1>
+        ) : (
           movies.Search?.map((movie) => (
             <CardUI
               key={movie.imdbID}
@@ -19,7 +23,8 @@ function App() {
               year={movie.Year}
               type={movie.Type}
             />
-          ))}
+          ))
+        )}
       </main>
     </>
   );

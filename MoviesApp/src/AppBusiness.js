@@ -1,10 +1,9 @@
 import { useState } from "react";
 
 export default function AppBusiness() {
-  const [movies, setMovies] = useState({ response: "False" });
+  const [movies, setMovies] = useState({ Response: "False" });
 
   const handleMovies = (movies) => {
-    console.log(movies);
     setMovies(movies);
   };
 
