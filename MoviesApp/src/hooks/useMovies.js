@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import MovieService from "../services/MovieService";
 
 export default function useMovies({
   search,
@@ -10,11 +11,10 @@ export default function useMovies({
     const fetchMovies = async () => {
       if (changeSearch.current) {
         try {
-          const response = await fetch(
-            `http://www.omdbapi.com/?apikey=prueba&s=${search}`
-          );
-          const data = await response.json();
-          handleMovies(data);
+          const response = await MovieService.getMoviesByTitle({
+            title: search,
+          });
+          handleMovies(response);
           handleChangeSearch();
         } catch (error) {
           console.error(error);
