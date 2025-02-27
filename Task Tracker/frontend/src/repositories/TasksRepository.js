@@ -6,4 +6,9 @@ async function createTask({ task }) {
   return Task.fromJSON(response.data);
 }
 
-export default { createTask };
+async function getTasks() {
+  const response = await TasksServices.getTasks();
+  return Task.fromJSONArray(response.data);
+}
+
+export default { createTask, getTasks };

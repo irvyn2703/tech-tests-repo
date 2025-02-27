@@ -21,4 +21,19 @@ async function createTask({ task }) {
   }
 }
 
-export default { createTask };
+async function getTasks() {
+  let url = `${API_URL}/task`;
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export default { createTask, getTasks };
