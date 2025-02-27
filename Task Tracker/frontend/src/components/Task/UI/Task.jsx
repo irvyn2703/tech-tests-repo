@@ -1,7 +1,11 @@
 export default function Task() {
   return (
     <div className="border-b-2 border-b-gray-300 flex items-center p-2">
-      <input type="checkbox" value={false} className="cursor-pointer size-6" />
+      <input
+        type="checkbox"
+        value={false}
+        className="appearance-none cursor-pointer size-6 border-2 rounded-md checked:bg-gray-400"
+      />
       <span
         className="
           transition-all
