@@ -11,4 +11,9 @@ async function getTasks() {
   return Task.fromJSONArray(response.data);
 }
 
-export default { createTask, getTasks };
+async function updateTask({ id, data }) {
+  const response = await TasksServices.updateTask({ id, data });
+  return Task.fromJSON(response.data);
+}
+
+export default { createTask, getTasks, updateTask };

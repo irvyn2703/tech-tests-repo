@@ -12,7 +12,12 @@ export default function TaskContainer() {
       <InputCreateTask />
       <main>
         {tasks?.map((task) => (
-          <Task key={task.id} />
+          <Task
+            key={task.id}
+            id={task.id}
+            title={task.title}
+            completed={task.completed}
+          />
         ))}
       </main>
     </div>
