@@ -1,4 +1,8 @@
+import InputCreateTaskBusiness from "../Business/InputCreateTaskBusiness";
+
 export default function InputCreateTask() {
+  const { newTask, handleCreateTask } = InputCreateTaskBusiness();
+
   return (
     <header className="grid gap-7">
       <label htmlFor="newTask" className="text-2xl">
@@ -10,8 +14,12 @@ export default function InputCreateTask() {
           name="newTask"
           className="flex-grow p-2 focus:outline-none text-2xl overflow-ellipsis"
           placeholder="Start writing and press enter to create task"
+          ref={newTask}
         />
-        <button className="bg-black p-2 m-2 flex-shrink-0 rounded-lg text-blue-50 cursor-pointer">
+        <button
+          className="bg-black p-2 m-2 flex-shrink-0 rounded-lg text-blue-50 cursor-pointer"
+          onClick={handleCreateTask}
+        >
           Enter
         </button>
       </div>
