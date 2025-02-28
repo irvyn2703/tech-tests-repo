@@ -1,7 +1,9 @@
 import InputCreateTaskBusiness from "../Business/InputCreateTaskBusiness";
 
-export default function InputCreateTask() {
-  const { newTask, handleCreateTask } = InputCreateTaskBusiness();
+export default function InputCreateTask({ handleToggleNewTask }) {
+  const { newTask, handleCreateTask } = InputCreateTaskBusiness({
+    handleToggleNewTask,
+  });
 
   return (
     <header className="grid gap-7">

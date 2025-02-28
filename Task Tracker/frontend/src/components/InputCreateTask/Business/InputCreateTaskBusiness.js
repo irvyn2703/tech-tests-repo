@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import TasksRepository from "../../../repositories/TasksRepository";
 
-export default function InputCreateTaskBusiness() {
+export default function InputCreateTaskBusiness({ handleToggleNewTask }) {
   const newTask = useRef();
 
   const handleCreateTask = async () => {
@@ -11,6 +11,7 @@ export default function InputCreateTaskBusiness() {
       try {
         const response = await TasksRepository.createTask({ task });
         alert(response.mesaageSuceess());
+        handleToggleNewTask();
       } catch (error) {
         console.error(error);
       }

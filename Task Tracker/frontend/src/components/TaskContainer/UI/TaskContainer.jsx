@@ -9,7 +9,7 @@ export default function TaskContainer() {
 
   return (
     <div className="grid w-11/12 m-auto mt-10 gap-8">
-      <InputCreateTask />
+      <InputCreateTask handleToggleNewTask={handleToggleNewTask} />
       <main>
         {tasks?.map((task) => (
           <Task
