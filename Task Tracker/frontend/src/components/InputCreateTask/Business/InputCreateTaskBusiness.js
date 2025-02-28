@@ -10,6 +10,7 @@ export default function InputCreateTaskBusiness({ handleToggleNewTask }) {
     if (task) {
       try {
         const response = await TasksRepository.createTask({ task });
+        newTask.current.value = "";
         alert(response.mesaageSuceess());
         handleToggleNewTask();
       } catch (error) {
