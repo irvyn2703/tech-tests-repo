@@ -13,7 +13,7 @@ export default function InputCreateTask({ handleToggleNewTask }) {
       <div className="flex border-2 rounded-lg">
         <input
           type="text"
-          name="newTask"
+          id="newTask"
           className="flex-grow p-2 focus:outline-none text-2xl overflow-ellipsis"
           placeholder="Start writing and press enter to create task"
           ref={newTask}

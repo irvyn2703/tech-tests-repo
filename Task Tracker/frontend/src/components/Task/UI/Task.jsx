@@ -17,6 +17,7 @@ export default function Task({ id, title, completed }) {
     >
       <input
         type="checkbox"
+        name="completed"
         checked={isCompleted}
         disabled={loading}
         onChange={handleCompleted}
