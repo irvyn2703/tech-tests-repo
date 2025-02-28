@@ -16,4 +16,9 @@ async function updateTask({ id, data }) {
   return Task.fromJSON(response.data);
 }
 
-export default { createTask, getTasks, updateTask };
+async function deleteTask({ id }) {
+  const response = await TasksServices.deleteTask({ id });
+  return Task.fromJSON(response.data);
+}
+
+export default { createTask, getTasks, updateTask, deleteTask };

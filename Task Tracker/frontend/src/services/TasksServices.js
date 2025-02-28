@@ -57,4 +57,21 @@ async function updateTask({ id, data }) {
   }
 }
 
-export default { createTask, getTasks, updateTask };
+async function deleteTask({ id }) {
+  let url = `${API_URL}/task/${id}`;
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export default { createTask, getTasks, updateTask, deleteTask };
