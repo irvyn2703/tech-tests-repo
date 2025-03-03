@@ -8,6 +8,10 @@ describe("Card component", () => {
   test("First render component", () => {
     render(<Card />);
 
+    const logo = screen.getByRole("img", { name: "logo" });
+    expect(logo).toBeInTheDocument();
+    expect(logo).toHaveAttribute("src", "https://github.com/irvyn2703.png");
+
     const title = screen.getByRole("heading", {
       name: "GitHub Repository Finder",
     });
