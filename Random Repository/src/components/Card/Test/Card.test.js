@@ -1,5 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import languages from "../../../json/options.json";
 import Card from "../UI/Card";
 
@@ -15,10 +16,14 @@ describe("Card component", () => {
     const select = screen.getByRole("combobox", { name: "Select a language" });
     expect(select).toBeInTheDocument();
 
-    const renderedOptions = screen.getAllByRole("option").map((opt) => ({
+    let renderedOptions = screen.getAllByRole("option").map((opt) => ({
       title: opt.textContent,
       value: opt.value,
     }));
+    renderedOptions = renderedOptions.filter(
+      (option) => option.value !== "no select"
+    );
+
     expect(renderedOptions).toEqual(languages);
 
     const defaultText = screen.getByText("Please Select a language");
