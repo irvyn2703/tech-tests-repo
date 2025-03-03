@@ -38,13 +38,16 @@ describe("Card component", () => {
     render(<Card />);
 
     const select = screen.getByRole("combobox", { name: "Select a language" });
+    const defaultText = screen.getByText("Please Select a language");
+
+    fireEvent.change(select, { target: { value: "no select" } });
+
+    expect(defaultText).toBeInTheDocument();
 
     fireEvent.change(select, { target: { value: languages[0].value } });
 
     expect(select).toHaveValue(languages[0].value);
 
-    expect(
-      screen.queryByText("Please Select a language")
-    ).not.toBeInTheDocument();
+    expect(screen.queryByText("Please Select a language")).toBeNull();
   });
 });

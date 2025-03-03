@@ -1,8 +1,9 @@
 import React from "react";
 import CardBusiness from "../business/CardBusiness";
+import RandomRepository from "../../RandomRepository/UI/RandomRepository";
 
 export default function Card() {
-  const { options } = CardBusiness();
+  const { options, select, handleSelectLanguage } = CardBusiness();
 
   return (
     <main className="w-9/10 m-auto pt-3 grid gap-5">
@@ -26,6 +27,7 @@ export default function Card() {
         defaultValue="no select"
         name="Select a language"
         className="w-full p-3 border-2 rounded-2xl bg-gray-200"
+        onChange={handleSelectLanguage}
       >
         <option value="no select" disabled>
           Select a language
@@ -36,9 +38,7 @@ export default function Card() {
           </option>
         ))}
       </select>
-      <div className="bg-gray-300 min-h-40 rounded-2xl flex justify-center items-center text-2xl">
-        Please Select a language
-      </div>
+      <RandomRepository select={select} />
     </main>
   );
 }
