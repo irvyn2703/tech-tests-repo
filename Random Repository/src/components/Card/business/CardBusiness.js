@@ -5,7 +5,6 @@ export default function CardBusiness() {
 
   const handleSelectLanguage = (event) => {
     if (event.target.value !== "no select") {
-      console.log(event.target.value);
       setSelect(event.target.value);
     }
   };

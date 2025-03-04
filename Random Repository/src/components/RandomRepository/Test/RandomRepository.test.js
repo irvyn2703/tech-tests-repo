@@ -25,7 +25,9 @@ describe("RandomRepository component", () => {
     const loadingText = screen.queryByText("Loading, please wait..");
     expect(loadingText).toBeInTheDocument();
 
-    await waitFor(() => expect(loadingText).toBeNull());
+    await waitFor(() =>
+      expect(screen.queryByText("Please Select a language")).toBeNull()
+    );
   });
 
   test("Should show 'Error fetching repositories' when there is an error", async () => {
