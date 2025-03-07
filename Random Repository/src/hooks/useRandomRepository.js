@@ -3,6 +3,7 @@ import GitRepository from "../repositories/GitRepository";
 
 export default function useRandomRepository({ select }) {
   const [isLoading, setIsLoading] = useState(false);
+  const [repository, setRepository] = useState(null);
 
   const getNumRandom = () => {
     return Math.floor(Math.random() * 1000) + 1;
@@ -17,8 +18,7 @@ export default function useRandomRepository({ select }) {
             language: select,
             numPage: getNumRandom(),
           });
-
-          console.log(response);
+          setRepository(response);
         } catch (error) {
           console.error(error);
         } finally {
@@ -30,5 +30,5 @@ export default function useRandomRepository({ select }) {
     fetchRepository();
   }, [select]);
 
-  return { isLoading };
+  return { isLoading, repository };
 }

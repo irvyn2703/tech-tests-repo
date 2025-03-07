@@ -11,7 +11,13 @@
     "test": "jest --watch"
   },
   "jest": {
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css|scss|less)$": "identity-obj-proxy"
+    }
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.9",

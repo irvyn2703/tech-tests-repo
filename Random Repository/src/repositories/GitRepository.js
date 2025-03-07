@@ -19,7 +19,7 @@ async function getRepository({ language, numPage }) {
     }
   }
 
-  return null;
+  return response;
 }
 
 export default { getRepository };
