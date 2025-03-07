@@ -3,15 +3,10 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import languages from "../../../json/options.json";
 import Card from "../UI/Card";
+import GitRepositoryService from "../../../services/GitRepositoryService";
 import successResponse from "../../../json/APIResponseMock.json";
-import errorResponse from "../../../json/APIErrorResponseMock.json";
 
-const mockSuccessResponse = successResponse;
-const mockErrorResponse = errorResponse;
-
-jest.mock("../../../services/GitRepositoryService", () => ({
-  getRepository: jest.fn(() => Promise.resolve(mockErrorResponse)),
-}));
+jest.mock("../../../services/GitRepositoryService");
 
 describe("Card component", () => {
   test("First render component", () => {
@@ -43,8 +38,9 @@ describe("Card component", () => {
     expect(defaultText).toBeInTheDocument();
   });
 
-  /*
   test("Should update the UI when select a language", () => {
+    GitRepositoryService.getRepository.mockResolvedValue(successResponse);
+
     render(<Card />);
 
     const select = screen.getByRole("combobox", { name: "Select a language" });
@@ -60,5 +56,4 @@ describe("Card component", () => {
 
     expect(screen.queryByText("Please Select a language")).toBeNull();
   });
-  */
 });
