@@ -37,22 +37,6 @@ describe("RandomRepository component", () => {
     );
   });
 
-  test("Should show 'Error fetching repositories' when there is an error", async () => {
-    GitRepositoryService.getRepository.mockResolvedValue(errorResponse);
-
-    render(<RandomRepository select={options[2].value} />);
-
-    await waitFor(() => {
-      expect(
-        screen.getByText("Error fetching repositories")
-      ).toBeInTheDocument();
-      expect(
-        screen.getByRole("button", { name: "Click to retry" })
-      ).toBeInTheDocument();
-    });
-  });
-
-  /*
   test("Should display repository information when data is available", async () => {
     render(<RandomRepository select={options[2].value} />);
 
@@ -68,11 +52,25 @@ describe("RandomRepository component", () => {
       const repoDetails = screen.getAllByText(
         (_, element) => element.tagName.toLowerCase() === "span"
       );
-      expect(repoDetails.length).toBeGreaterThanOrEqual(3);
+      expect(repoDetails.length).toBeGreaterThanOrEqual(4);
 
       const refreshButton = screen.getByRole("button", { name: "Refresh" });
       expect(refreshButton).toBeInTheDocument();
     });
   });
-  */
+
+  test("Should show 'Error fetching repositories' when there is an error", async () => {
+    GitRepositoryService.getRepository.mockResolvedValue(errorResponse);
+
+    render(<RandomRepository select={options[2].value} />);
+
+    await waitFor(() => {
+      expect(
+        screen.getByText("Error fetching repositories")
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: "Click to retry" })
+      ).toBeInTheDocument();
+    });
+  });
 });
