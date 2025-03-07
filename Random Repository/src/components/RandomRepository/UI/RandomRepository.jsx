@@ -12,10 +12,12 @@ export default function RandomRepository({ select }) {
       </div>
     ) : (
       <>
-        <div className="bg-gray-300 min-h-40 rounded-2xl flex justify-center items-center text-2xl">
+        <div className="bg-red-300 min-h-40 rounded-2xl flex justify-center items-center text-2xl">
           Error fetching repositories
         </div>
-        <button>Click to retry</button>
+        <button className="bg-red-500 rounded-2xl text-white py-3 text-2xl cursor-pointer">
+          Click to retry
+        </button>
       </>
     );
 
