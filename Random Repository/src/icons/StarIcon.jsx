@@ -1,3 +1,4 @@
+import React from "react";
 import starIcon from "../assets/star.svg";
 
 export default function StarIcon() {

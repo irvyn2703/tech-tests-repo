@@ -1,6 +1,6 @@
+import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import RandomRepository from "../UI/RandomRepository";
 import options from "../../../json/options.json";
 import GitRepositoryService from "../../../services/GitRepositoryService";
@@ -61,6 +61,21 @@ describe("RandomRepository component", () => {
 
   test("Should show 'Error fetching repositories' when there is an error", async () => {
     GitRepositoryService.getRepository.mockResolvedValue(errorResponse);
+
+    render(<RandomRepository select={options[2].value} />);
+
+    await waitFor(() => {
+      expect(
+        screen.getByText("Error fetching repositories")
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: "Click to retry" })
+      ).toBeInTheDocument();
+    });
+  });
+
+  test("Should show 'Error fetching repositories' when the response contains no items", async () => {
+    GitRepositoryService.getRepository.mockResolvedValue({});
 
     render(<RandomRepository select={options[2].value} />);
 

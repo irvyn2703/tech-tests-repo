@@ -1,3 +1,4 @@
+import React from "react";
 import forkIcon from "../assets/fork.svg";
 
 export default function ForkIcon() {

@@ -1,3 +1,4 @@
+import React from "react";
 import issuIcon from "../assets/issu.svg";
 
 export default function IsuuIcon() {

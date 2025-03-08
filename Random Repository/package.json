@@ -16,7 +16,8 @@
       "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
     },
     "moduleNameMapper": {
-      "\\.(css|scss|less)$": "identity-obj-proxy"
+      "\\.(css|scss|less)$": "identity-obj-proxy",
+      "\\.svg$": "<rootDir>/__mocks__/fileMock.js"
     }
   },
   "dependencies": {
