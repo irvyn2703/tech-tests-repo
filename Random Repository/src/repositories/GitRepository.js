@@ -14,8 +14,6 @@ async function getRepository({ language, numPage }) {
     const repositories = GitRepository.fromJSONArray(items);
     if (repositories.length === 1) {
       return repositories[0];
-    } else {
-      return GitRepository.fromJSONArray(items);
     }
   }
 

@@ -75,7 +75,7 @@ describe("RandomRepository component", () => {
   });
 
   test("Should show 'Error fetching repositories' when the response contains no items", async () => {
-    GitRepositoryService.getRepository.mockResolvedValue({});
+    GitRepositoryService.getRepository.mockResolvedValue({ items: [] });
 
     render(<RandomRepository select={options[2].value} />);
 
